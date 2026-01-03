@@ -1,9 +1,9 @@
 import { useContext,useState } from "react";
-import { AuthContext } from "../context/AuthProvider.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-    const {email,setEmail}=useState("");
-    const {password,setPassword}=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
     const {login}=useContext(AuthContext);
     const navigate=useNavigate();
     const handleSubmit=(e)=>{
@@ -13,7 +13,7 @@ const Login = () => {
             navigate("/admin/dashboard");
         }
         else if(role==="customer"){
-            navigate("/customer/restaurants");
+            navigate("/customer/dashboard");
         };
     };
     return(
