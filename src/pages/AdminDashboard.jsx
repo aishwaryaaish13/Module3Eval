@@ -1,9 +1,9 @@
-import { useEffect,useState} from "react";
+import { useState} from "react";
 import { getRestaurants,saveRestaurants } from "../utils/localStorage";
 import RestaurantCard from "../components/RestaurantCard";
 import { useNavigate } from "react-router-dom";
 const AdminDashboard = () => {
-    const [data,setData]=useState(()=>getRestaurants());
+    const [data,setData]=useState(getRestaurants());
     const navigate=useNavigate();
     const deleteRestaurant=(id)=>{
         if(!confirm("Are you sure you want to delete this restaurant?")) return;
@@ -16,7 +16,7 @@ const AdminDashboard = () => {
         <div>
             <h2>Admin Dashboard</h2>
             {data.map((r)=>(
-                <RestaurantCard key={r.restaurantId} data={r} isAdmin={true} deleteRestaurant={deleteRestaurant} onUpdate={(id)=>navigate('/admin/restaurants/update/${id}')}
+                <RestaurantCard key={r.restaurantId} data={r} isAdmin={true} deleteRestaurant={deleteRestaurant} onUpdate={(id)=>navigate(`/admin/restaurants/update/${id}`)}
                 
                 />
             ))}

@@ -1,11 +1,8 @@
-import { useEffect,useState } from "react";
+import { useState } from "react";
 import { getRestaurants } from "../utils/localStorage";
 import RestaurantCard from "../components/RestaurantCard";
 const CustomerDashboard = () => {
-    const [data,setData]=useState(()=>getRestaurants());
-    useEffect(()=>{
-            
-    },[]);
+    const [data]=useState(getRestaurants());
     return(
         <div>
             <h2>Customer Dashboard</h2>
