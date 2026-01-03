@@ -16,8 +16,12 @@ const AdminDashboard = () => {
         <div>
             <h2>Admin Dashboard</h2>
             {data.map((r)=>(
-                <RestaurantCard key={r.restaurantId} data={r} isAdmin={true} deleteRestaurant={deleteRestaurant} onUpdate={(id)=>navigate(`/admin/restaurants/update/${id}`)}
-                
+                <RestaurantCard
+                    key={r.restaurantId}
+                    data={r}
+                    isAdmin={true}
+                    onDelete={deleteRestaurant}
+                    onUpdate={(id)=>navigate(`/admin/restaurants/update/${id}`)}
                 />
             ))}
         </div>
